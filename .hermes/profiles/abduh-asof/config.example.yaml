@@ -1,26 +1,24 @@
 # Configuração de Exemplo — Perfil Hermes-Agent (Abduh/ASOF)
-# Modelo: Gemini API via proxy OpenAI-compatible
+# Modelo: Gemini API (provedor nativo — NÃO usar provider: custom)
 
 # ============================================
-# Configuração do Modelo (Gemini)
+# Configuração do Modelo (Gemini Nativo)
 # ============================================
 model:
-  provider: custom
-  default: gemini-2.0-flash-exp  # Modelo recomendado para Fase 1
-  # default: gemini-1.5-pro      # Alternativa: melhor qualidade, mais lento
-  # default: gemini-1.5-flash    # Alternativa: balanceado
+  provider: gemini                  # ← NATIVO, não "custom"
+  default: gemini-flash-latest     # Auto-atualiza para Flash mais recente
+  # default: gemini-3.1-flash-lite-preview  # Alternativa: mais rápido
+  # default: gemini-3-flash-preview         # Alternativa: balanceado
+  # default: gemini-3.1-pro-preview         # Alternativa: mais capaz
 
-  # Proxy OpenAI-compatible do Gemini
-  base_url: https://generativelanguage.googleapis.com/v1beta/openai/
+  # Endpoint nativo do Gemini (NÃO usar /openai/)
+  base_url: https://generativelanguage.googleapis.com/v1beta
 
-  # Modo de API
-  api_mode: chat_completions
+  # NÃO configurar api_mode nem api_key — o provider nativo gerencia
+  # automaticamente via GOOGLE_API_KEY ou GEMINI_API_KEY no .env
 
   # Timeout (em segundos)
   timeout: 120
-
-  # Max tokens por resposta
-  max_tokens: 4096
 
 # ============================================
 # Configuração de Memória
