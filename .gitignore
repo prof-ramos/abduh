@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Claude Code / OMC state
+.omc/
+.claude/
+
+# Verboo
+.verboo/
