@@ -1,0 +1,193 @@
+# Configuração de Exemplo — Perfil Hermes-Agent (Abduh/ASOF)
+# Modelo: Gemini API (provedor nativo — NÃO usar provider: custom)
+
+# ============================================
+# Configuração do Modelo (Gemini Nativo)
+# ============================================
+model:
+  provider: gemini                  # ← NATIVO, não "custom"
+  default: gemini-flash-latest     # Auto-atualiza para Flash mais recente
+  # default: gemini-3.1-flash-lite-preview  # Alternativa: mais rápido
+  # default: gemini-3-flash-preview         # Alternativa: balanceado
+  # default: gemini-3.1-pro-preview         # Alternativa: mais capaz
+
+  # Endpoint nativo do Gemini (NÃO usar /openai/)
+  base_url: https://generativelanguage.googleapis.com/v1beta
+
+  # NÃO configurar api_mode nem api_key — o provider nativo gerencia
+  # automaticamente via GOOGLE_API_KEY ou GEMINI_API_KEY no .env
+
+  # Timeout (em segundos)
+  timeout: 120
+
+# ============================================
+# Configuração de Memória
+# ============================================
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+
+  # Limite de caracteres por entrada (aprox. tokens)
+  memory_char_limit: 2200   # ~800 tokens
+  user_char_limit: 1375     # ~500 tokens
+
+  # Aprovação de escrita (false = escreve livremente, true = requer aprovação)
+  write_approval: false
+
+# ============================================
+# Configuração de Delegação (Orchestrator)
+# ============================================
+delegation:
+  orchestrator_enabled: true       # OBRIGATÓRIO para Abduh usar memory/send_message
+  max_concurrent_children: 3       # Máximo de agentes ativos por turno
+  max_spawn_depth: 2               # Profundidade máxima de delegação
+  child_timeout_seconds: 300       # Timeout para tarefas delegadas
+  subagent_auto_approve: false     # Requer aprovação manual por padrão
+  inherit_mcp_toolsets: true       # Herda toolsets do pai
+  max_iterations: 50               # Máximo de iterações de raciocínio
+
+# ============================================
+# Configuração do Gateway (Telegram)
+# ============================================
+gateway:
+  type: telegram
+
+  telegram:
+    # URL do webhook (deve ser HTTPS em produção)
+    webhook_url: https://seu-dominio.com/telegram
+
+    # Token secreto para autenticação de requisições webhook
+    webhook_secret: ${TELEGRAM_WEBHOOK_SECRET}
+
+    # Máximo de conexões simultâneas (1-100)
+    max_connections: 40
+
+    # Tipos de updates a receber
+    allowed_updates:
+      - message
+      - edited_channel_post
+      - callback_query
+
+    # IDs de usuários permitidos (separados por vírgula)
+    allowed_users: ${TELEGRAM_ALLOWED_USERS}
+
+# ============================================
+# Configuração de Toolsets
+# ============================================
+toolsets:
+  default:
+    - web
+    - file
+    - terminal
+
+  # Toolsets específicos para agentes
+  legal:
+    - web
+    - file
+  security:
+    - web
+    - file
+  operations:
+    - terminal
+    - file
+
+# ============================================
+# Configuração de Logging
+# ============================================
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+  # Formato de log
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+  # Arquivos de log
+  files:
+    agent: logs/agent.log
+    gateway: logs/gateway.log
+    errors: logs/errors.log
+
+  # Rotação de logs
+  rotation:
+    max_bytes: 10485760  # 10MB
+    backup_count: 5
+
+# ============================================
+# Configuração de Cron (Fase 2)
+# ============================================
+cron:
+  enabled: true
+
+  # Exemplo de job recorrente
+  jobs:
+    - name: backup-diario
+      schedule: "0 2 * * *"  # 2:00 AM daily
+      command: "bash /app/scripts/backup.sh"
+
+    - name: resumo-semanal
+      schedule: "0 9 * * 1"  # 9:00 AM every Monday
+      command: "hermes cron run resumo-semanal"
+
+# ============================================
+# Configuração de Segurança
+# ============================================
+security:
+  # Verificar HTTPS em requisições externas
+  verify_ssl: true
+
+  # Timeout para requisições externas
+  external_timeout: 30
+
+  # Rate limiting (Fase 2)
+  rate_limiting:
+    enabled: true
+    max_requests_per_minute: 100
+    max_requests_per_user_per_minute: 10
+
+# ============================================
+# Configuração de Observabilidade (Fase 2)
+# ============================================
+observability:
+  # Prometheus metrics
+  prometheus:
+    enabled: false
+    port: 9090
+    path: /metrics
+
+  # Health check endpoint
+  health_check:
+    enabled: true
+    port: 8000
+    path: /health
+
+  # Tracing (Fase 2)
+  tracing:
+    enabled: false
+    provider: jaeger  # ou datadog, otlp
+
+# ============================================
+# Notas Importantes
+# ============================================
+#
+# 1. Variáveis de ambiente devem ser definidas em ~/.hermes/profiles/abduh-asof/.env
+#    e referenciadas aqui como ${VARIAVEL}
+#
+# 2. Para produção, use Docker secrets em vez de .env:
+#    docker secret create gemini_api_key - < chave
+#
+# 3. O proxy OpenAI-compatible do Gemini está disponível em:
+#    https://generativelanguage.googleapis.com/v1beta/openai/
+#
+# 4. Modelos Gemini disponíveis:
+#    - gemini-2.0-flash-exp: Mais rápido, bom para conversação
+#    - gemini-1.5-pro: Melhor qualidade, mais lento
+#    - gemini-1.5-flash: Balanceado entre velocidade e qualidade
+#
+# 5. Para Fase 1 (validação via Claude Project), use:
+#    model.provider: anthropic
+#    model.default: claude-sonnet-4-6
+#    model.base_url: https://api.anthropic.com/v1
+#
+# 6. Para Fase 2 (Hermes-Agent), use:
+#    model.provider: custom
+#    model.default: gemini-2.0-flash-exp
+#    model.base_url: https://generativelanguage.googleapis.com/v1beta/openai/
