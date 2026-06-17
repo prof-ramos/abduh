@@ -5,7 +5,7 @@
 
 ## Purpose
 
-This directory contains the 8 specialist agent Markdown modules for the Abduh institutional system of ASOF (Associacao Nacional dos Oficiais de Chancelaria do Servico Exterior Brasileiro). These agents are NOT microservices — they are Markdown context files loaded by Abduh as additional context when analyzing a user demand. Abduh selects at most 3 agents per turn based on demand classification, loads their content into the conversation context, consolidates their analyses, and delivers a single institutional response. Agents never respond directly to the user.
+This directory contains the 8 specialist agent Markdown modules for the Abduh institutional system of ASOF (Associação Nacional dos Oficiais de Chancelaria do Serviço Exterior Brasileiro). These agents are NOT microservices — they are Markdown context files loaded by Abduh as additional context when analyzing a user demand. Abduh selects at most 3 agents per turn based on demand classification, loads their content into the conversation context, consolidates their analyses, and delivers a single institutional response. Agents never respond directly to the user.
 
 ## Key Files
 

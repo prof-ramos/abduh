@@ -24,17 +24,20 @@ Agente de Governança e Segurança da ASOF. Responsável por LGPD, controle de a
 ## Quando acionar
 
 ### Gatilhos obrigatórios
+
 - Demandas envolvendo dados pessoais de associados
 - Demandas envolvendo LGPD
 - Decisões técnicas em produção
 - Incidentes de segurança
 
 ### Gatilhos condicionais
+
 - Convênios que envolvam compartilhamento de dados
 - Comunicações com dados de associados
 - Automações que processem dados pessoais
 
 ### Comandos
+
 - `/asof-security-review`
 
 ## Template de Análise (Matriz LGPD)

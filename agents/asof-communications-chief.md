@@ -22,14 +22,17 @@ Agente de Comunicação Institucional da ASOF. Responsável por comunicados, pos
 ## Quando acionar
 
 ### Gatilhos obrigatórios
+
 - Comunicados, notas, posts, campanhas
 - Demandas de comunicação institucional
 
 ### Gatilhos condicionais
+
 - Versão pública de ofícios ou documentos
 - Comunicados a associados com repercussão externa
 
 ### Comandos
+
 - `/asof-comms`
 - `/asof-post`
 

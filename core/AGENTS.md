@@ -4,9 +4,11 @@
 # core
 
 ## Purpose
+
 This directory contains the architectural core of Abduh, the institutional coordinating agent for ASOF. The five files here collectively define Abduh's identity and mission (`abduh-soul.md`), its routing logic for activating specialist agents (`abduh-router.md`), its sovereign institutional policies (`abduh-policy.md`), its mandatory pre-delivery quality gate (`abduh-quality-gate.md`), and its language and formatting standards (`abduh-response-style.md`). Together they constitute the complete behavioral specification that governs every Abduh response — no output is delivered without passing through all five layers.
 
 ## Key Files
+
 | File | Description |
 |------|-------------|
 | `abduh-soul.md` | Central identity file — defines Abduh's mission, 6-step operational loop, hard prohibitions, ambiguity handling rules, and institutional context (ASOF, MRE, LGPD, Estatuto). Loaded verbatim into the system prompt as SOUL.md. |
@@ -18,6 +20,7 @@ This directory contains the architectural core of Abduh, the institutional coord
 ## For AI Agents
 
 ### Working In This Directory
+
 - These files are loaded directly into Abduh's system prompt context at runtime. Changes take effect at the next session start — no gateway restart is required, but `SOUL.md` must be recopied to `~/.hermes/profiles/abduh-asof/SOUL.md` after every edit to `abduh-soul.md`.
 - All five files are Markdown with YAML frontmatter. Every file must preserve its frontmatter block (`agent`, `version`, `last_updated`). Update `version` and `last_updated` on every substantive change.
 - Versioning is semantic and enforced: text/clarity fixes are PATCH, new rules or output fields are MINOR, scope changes are MAJOR. A MAJOR version change to `abduh-router.md` requires a corresponding update to the router and a new eval cycle.
@@ -25,6 +28,7 @@ This directory contains the architectural core of Abduh, the institutional coord
 - Do not add emojis, marketing language, or informal tone to any file in this directory — the style constraints in `abduh-response-style.md` apply to the documentation itself as a reference standard.
 
 ### Loading Order
+
 When loading these files into agent context for editing, review, or reasoning, load in the following order to respect dependency and override hierarchy:
 
 1. `abduh-soul.md` — establishes identity and operational loop; foundational context for all other files
@@ -36,6 +40,7 @@ When loading these files into agent context for editing, review, or reasoning, l
 For production deployment, `abduh-soul.md` is the only file deployed to `HERMES_HOME` directly (as `SOUL.md`). The remaining files are loaded as context modules per session.
 
 ### Critical Rules
+
 - **Never invent facts, norms, or dates** in any of these files — this is sovereign rule 2 in `abduh-policy.md` and a gate trigger in `abduh-quality-gate.md`.
 - **The quality gate is never optional.** Do not add logic or shortcuts that bypass the 7-item checklist in `abduh-quality-gate.md`.
 - **Max 3 agents per turn** is a hard limit in `abduh-router.md`. Do not raise this ceiling without a corresponding architectural review.
@@ -46,11 +51,13 @@ For production deployment, `abduh-soul.md` is the only file deployed to `HERMES_
 ## Dependencies
 
 ### Internal
+
 - `../AGENT-CONTRACT.md` — defines the mandatory output signals (`Nível de confiança`, `Requer validação humana`, `Riscos identificados`) that the quality gate in `abduh-quality-gate.md` checks against. Any change to the contract fields must be reflected in the gate checklist.
 - `../agents/` — the 8 specialist agent Markdown files that `abduh-router.md` routes demands to. Agent names and roles referenced in the router must match the actual agent files in that directory.
 - `../PRD-abduh-asof.md` — product spec that defines phases, architecture decisions, and constraints. Core files must remain consistent with the ADRs recorded there.
 
 ### External
+
 - **Hermes-Agent** — runtime that loads `abduh-soul.md` as `SOUL.md` into the system prompt. Behavior depends on Hermes profile config at `~/.hermes/profiles/abduh-asof/config.yaml`.
 - **LGPD (Lei 13.709/2018)** — Brazilian data protection law referenced in `abduh-policy.md` (rule 6) and `abduh-quality-gate.md` (item 3). Governs all handling of associate personal data.
 - **Manual de Redação da Presidência da República** — official Brazilian government writing guide referenced in `abduh-policy.md` (rule 3) and `abduh-response-style.md`. Required standard for all formal documents produced by Abduh.

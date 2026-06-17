@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Abduh is the institutional coordinating agent for ASOF (Associacao Nacional dos Oficiais de Chancelaria do Servico Exterior Brasileiro). It is the single entry point for all administrative, legal, communications, and technical demands of the association — not a generic chatbot. Every request is classified, routed to specialist agents, consolidated with a strict precedence hierarchy, and validated through a mandatory quality gate before delivery.
+Abduh is the institutional coordinating agent for ASOF (Associação Nacional dos Oficiais de Chancelaria do Serviço Exterior Brasileiro). It is the single entry point for all administrative, legal, communications, and technical demands of the association — not a generic chatbot. Every request is classified, routed to specialist agents, consolidated with a strict precedence hierarchy, and validated through a mandatory quality gate before delivery.
 
 The runtime is Hermes-Agent (NousResearch) with Claude as the LLM backend (Anthropic API via OpenAI-compatible proxy) and Telegram as the primary gateway (Phase 1). Specialist agents are Markdown modules loaded into Abduh's context window — they are never independent services and never respond directly to the user. Abduh consolidates all analyses and delivers a single, coherent institutional response.
 

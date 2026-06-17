@@ -22,15 +22,18 @@ Agente Jurídico-Institucional da ASOF. Responsável por análise jurídica, ela
 ## Quando acionar
 
 ### Gatilhos obrigatórios
+
 - Ofícios, requerimentos, documentos formais ao MRE
 - Análise jurídica de normas ou atos
 - Resposta a órgãos públicos
 
 ### Gatilhos condicionais
+
 - Comunicações públicas com tema sensível
 - Convênios e acordos de cooperação
 
 ### Comandos
+
 - `/asof-oficio`
 - `/asof-legal-review`
 

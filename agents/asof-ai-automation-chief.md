@@ -22,15 +22,18 @@ Agente de IA e Automação da ASOF. Responsável por avaliar viabilidade de auto
 ## Quando acionar
 
 ### Gatilhos obrigatórios
+
 - Automação de processos
 - Soluções de IA e RAG
 - Relatórios automáticos
 
 ### Gatilhos condicionais
+
 - Qualquer demanda que possa ser automatizada
 - Processos repetitivos com volume alto
 
 ### Comandos
+
 - `/asof-ai-fit`
 - `/asof-automation`
 

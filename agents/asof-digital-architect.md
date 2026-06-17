@@ -22,15 +22,18 @@ Agente de Arquitetura Digital da ASOF. Responsável por intranet, site, stack te
 ## Quando acionar
 
 ### Gatilhos obrigatórios
+
 - Decisões técnicas sobre intranet, site, stack
 - Deploy e infraestrutura
 - ADRs
 
 ### Gatilhos condicionais
+
 - Migração de banco de dados ou produção
 - Mudanças com impacto em segurança
 
 ### Comandos
+
 - `/asof-tech-decision`
 
 ## Template de Análise

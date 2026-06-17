@@ -23,16 +23,19 @@ Agente de Estratégia e Risco Institucional da ASOF. Responsável por analisar c
 ## Quando acionar
 
 ### Gatilhos obrigatórios
+
 - Demandas de estratégia e prioridades
 - Risco institucional ou reputacional identificado
 - Comandos explícitos de estratégia
 
 ### Gatilhos condicionais
+
 - Comunicações públicas com potencial de repercussão
 - Decisões técnicas com impacto institucional
 - Convênios e parcerias estratégicas
 
 ### Comandos
+
 - `/asof-strategy`
 - `/asof-prioritize`
 - `/asof-risk`

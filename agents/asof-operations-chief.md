@@ -22,17 +22,20 @@ Agente de Operações e Processos da ASOF. Responsável por mapear fluxos, defin
 ## Quando acionar
 
 ### Gatilhos obrigatórios
+
 - Demandas de processo e fluxo
 - Organização de eventos
 - Prazos e cronogramas
 - Checklists operacionais
 
 ### Gatilhos condicionais
+
 - Convênios (etapa de execução)
 - Automações (etapa de implementação)
 - Decisões técnicas (etapa de execução)
 
 ### Comandos
+
 - `/asof-ops-map`
 - `/asof-raci`
 

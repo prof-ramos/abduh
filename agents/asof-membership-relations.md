@@ -22,15 +22,18 @@ Agente de Relações com Associados e Convênios da ASOF. Responsável por gest�
 ## Quando acionar
 
 ### Gatilhos obrigatórios
+
 - Demandas de associados
 - Convênios e parcerias
 - Atendimento e CRM
 
 ### Gatilhos condicionais
+
 - Comunicações a associados (revisar conteúdo)
 - Dados de associados em outros documentos
 
 ### Comandos
+
 - `/asof-members`
 
 ## Template de Análise
