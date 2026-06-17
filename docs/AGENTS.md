@@ -4,9 +4,11 @@
 # docs
 
 ## Purpose
+
 This directory contains developer documentation for the Abduh/ASOF project. It covers the full developer lifecycle: environment setup and Hermes-Agent profile configuration, best practices audit for Phase 2 production readiness, and step-by-step provider configuration guides (Gemini, Claude, OpenAI). These files are the authoritative reference for engineers setting up, maintaining, or migrating the `abduh-asof` Hermes profile, as well as for understanding the gap analysis between current implementation and production requirements.
 
 ## Key Files
+
 | File | Description |
 |------|-------------|
 | `dev-guide.md` | Primary developer reference: setup, architecture, workflow, testing, troubleshooting, and quick-reference command table |
@@ -16,6 +18,7 @@ This directory contains developer documentation for the Abduh/ASOF project. It c
 ## For AI Agents
 
 ### Working In This Directory
+
 - Do NOT invent or fabricate configuration values, version numbers, API endpoint URLs, or command syntax. Every value must be traceable to the source files or official provider documentation.
 - When modifying `dev-guide.md`, preserve the exact command syntax in code blocks. These commands are executed verbatim by developers and errors have direct production impact.
 - When updating `best-practices-check.md`, treat the "Critical" tier items in the Phase 2 readiness checklist as blocking — do not downgrade their priority without explicit human authorization.
@@ -25,6 +28,7 @@ This directory contains developer documentation for the Abduh/ASOF project. It c
 - Do not store or reference personal data of associados in documentation examples. All examples must use placeholder values.
 
 ### Documentation Standards
+
 - All code snippets must be complete and executable — no pseudocode or partial fragments in setup guides.
 - Configuration values that require secrets (API keys, bot tokens) must always reference `.env` variables, never hardcoded values.
 - The `.env` file must always carry a `chmod 600` reminder whenever it is mentioned.
@@ -36,6 +40,7 @@ This directory contains developer documentation for the Abduh/ASOF project. It c
 ## Dependencies
 
 ### Internal
+
 - `../CLAUDE.md` — Project-level instructions for Claude Code; defines architecture, agent precedence, Hermes profile structure, and production gotchas referenced throughout these docs.
 - `../README.md` — Project entry point; documentation index table and phase roadmap must stay in sync with descriptions here.
 - `../STATUS.md` — Live operational snapshot; Phase 1 next steps and missing directories (`core/`, `agents/`, `templates/`, `evals/`) inform the scope of work described in `dev-guide.md`.

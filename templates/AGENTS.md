@@ -41,6 +41,7 @@ If the demand could match more than one template, prefer the most formal option.
 ### Style Rules
 
 **General rules (all documents)**
+
 - Language: formal Brazilian Portuguese per the Manual de Redação da Presidência da República.
 - No emojis, advertising language, or informal expressions in any template output.
 - First mention of ASOF must spell out the full name: "Associação Nacional dos Oficiais de Chancelaria do Serviço Exterior Brasileiro (ASOF)".
@@ -48,6 +49,7 @@ If the demand could match more than one template, prefer the most formal option.
 - LGPD hard rule: do not include sensitive personal data of associados in the body of any document.
 
 **Ofício-specific rules**
+
 - Body paragraphs must be numbered sequentially: 1., 2., 3.
 - No comma after the vocativo (per Manual de Redação da PR).
 - Closing: use "Atenciosamente" for peers; use "Respeitosamente" only for superior authorities (Minister, President).
@@ -55,12 +57,14 @@ If the demand could match more than one template, prefer the most formal option.
 - The ofício number and date must be real values — never invented placeholders.
 
 **Nota Institucional-specific rules**
+
 - Requires Strategy Chief review before publication due to reputational risk.
 - Structure body as three logical blocks: fato / posição institucional / encaminhamento.
 - Always include press contact block at the closing.
 - Always requires human validation — notas are public and irreversible.
 
 **Comunicado aos Associados-specific rules**
+
 - Tone: cordial but institutional. Not informal, not cold.
 - Structure body as: contexto / informação / ação esperada.
 - Must be reviewed by Membership Relations before sending.
@@ -68,6 +72,7 @@ If the demand could match more than one template, prefer the most formal option.
 - No sensitive personal data in mass communications.
 
 **Relatório de Diretoria-specific rules**
+
 - Internal use only. Objective language with no rhetoric or persuasive framing.
 - Executive summary must be 3 to 5 lines.
 - Topic sections must be numbered.

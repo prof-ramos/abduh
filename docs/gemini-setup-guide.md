@@ -8,7 +8,7 @@
 
 - ✅ Hermes-Agent instalado: `pip install hermes-agent`
 - ✅ Perfil criado: `hermes profile create abduh-asof`
-- ✅ Chave da API Gemini: https://makersuite.google.com/app/apikey
+- ✅ Chave da API Gemini: <https://makersuite.google.com/app/apikey>
 
 ---
 
@@ -81,6 +81,7 @@ nano .env
 ```
 
 Preencha as variáveis:
+
 - `GEMINI_API_KEY` — Sua chave da API Gemini
 - `TELEGRAM_BOT_TOKEN` — Token do seu bot do Telegram
 - `TELEGRAM_ALLOWED_USERS` — IDs dos usuários permitidos

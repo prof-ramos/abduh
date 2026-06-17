@@ -61,7 +61,7 @@ ASOF
 | `[Contexto]` | Parágrafo introdutório | sim |
 | `[Informação]` | Parágrafo informativo | sim |
 | `[Ação esperada]` | Parágrafo de ação | condicional |
-| `[Contato]` | asof@asof.org.br | condicional |
+| `[Contato]` | <asof@asof.org.br> | condicional |
 | `[Telefone]` | (61) 3224-1234 | condicional |
 | `[Nome]` | Manuel Alves Bezerra | sim |
 | `[Cargo]` | Presidente | sim |
